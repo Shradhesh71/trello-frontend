@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { X, Search, Tag, Calendar, Filter } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { searchApi, labelsApi } from '@/lib/api';
-import { SearchParams } from '@/types';
+import { Card, SearchParams } from '@/types';
 import { CardItem } from '@/components/cards/card-item';
 
 interface SearchModalProps {
@@ -183,7 +183,7 @@ export function SearchModal({ boardId, isOpen, onClose }: SearchModalProps) {
               <div className="text-sm text-gray-600 mb-3">
                 Found {total} card{total !== 1 ? 's' : ''}
               </div>
-              {cards.map((card) => (
+              {cards.map((card: Card) => (
                 <div key={card.id} onClick={onClose}>
                   <CardItem card={card} />
                 </div>
